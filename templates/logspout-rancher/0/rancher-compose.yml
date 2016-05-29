@@ -1,0 +1,39 @@
+.catalog:
+  name: Logspout-Rancher
+  version: 0.3.3-rancher
+  description: |
+    Logspout is a log router for Docker containers.
+  questions:
+    - variable: "route_uri"
+      label: "Logspout Route URI"
+      type: "string"
+      required: true
+      default: "logstash://logstash:5000"
+      description: |
+        This will be the target where all logs are sent. 
+        By default it uses logstash and points to a linked service
+        logstash.
+    - variable: "target_link"
+      label: "Logging Service Link (Optional) "
+      type: "service"
+      required: false
+      description: |
+        Name of a stack/service to send logs to.
+    - variable: "target_link_name"
+      label: "Logging Service Alias"
+      type: "string"
+      required: false
+      description: |
+        Alias for the service link. The name should
+        line up with the route uri.
+        Leave empty when the logs are sent to an external service.
+    - variable: "DOMAINS"
+      description: |
+        Logstash collection tier inputs. These will be added
+        directly to input { } section of logstash.conf
+      label: "Logstash inputs"
+      type: "multiline"
+      required: true
+      default: |
+        www.example.com, www2.example.com
+        dns.example.com

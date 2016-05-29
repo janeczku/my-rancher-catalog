@@ -1,0 +1,5 @@
+name: Route53 DNS Dev
+description: |
+  Rancher External DNS service powered by Amazon Route53
+version: v0.4.2-rancher1
+category: Rancher Services

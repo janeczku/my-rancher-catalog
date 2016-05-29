@@ -1,0 +1,5 @@
+name: CloudFlare DNS dev
+description: |
+  Rancher External DNS service powered by CloudFlare
+version: v0.2.9-rancher1
+category: Rancher Services

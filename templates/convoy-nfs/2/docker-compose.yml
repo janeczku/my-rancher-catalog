@@ -1,0 +1,22 @@
+convoy-nfs:
+  labels:
+    io.rancher.container.create_agent: 'true'
+    io.rancher.scheduler.global: 'true'
+    io.rancher.container.pull_image: 'always'
+  privileged: true
+  pid: host
+  volumes:
+    - /lib/modules:/lib/modules:ro
+    - /proc:/host/proc
+    - /var/run:/host/var/run
+    - /etc/docker/plugins:/etc/docker/plugins
+  image: janeczku/convoy-agent:dev4
+  command: volume-agent-nfs
+
+convoy-nfs-storagepool:
+  labels:
+    io.rancher.container.create_agent: 'true'
+  image: janeczku/convoy-agent:dev4
+  volumes:
+    - /var/run:/host/var/run
+  command: storagepool-agent

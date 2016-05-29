@@ -1,0 +1,18 @@
+rfc2136dns:
+  image: janeczku/external-dns:rfc2
+  expose:
+   - 1000
+  command:
+  - -provider
+  - RFC2136
+  - -debug
+  environment:
+    DNS_HOST: ${DNS_HOST}
+    DNS_PORT: ${DNS_PORT}
+    TSIG_KEYNAME: ${TSIG_KEYNAME}
+    TSIG_KEY: ${TSIG_KEY}
+    ROOT_DOMAIN: ${ROOT_DOMAIN}
+    TTL: ${TTL}
+  labels:
+    io.rancher.container.create_agent: "true"
+    io.rancher.container.agent.role: "external-dns"

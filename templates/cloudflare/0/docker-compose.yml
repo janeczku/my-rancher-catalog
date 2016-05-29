@@ -1,0 +1,14 @@
+cloudflare:
+  image: janeczku/external-dns:dev-cf
+  command: -debug -provider=cloudflare
+  expose: 
+   - 1000
+  environment:
+    CLOUDFLARE_EMAIL: ${CLOUDFLARE_EMAIL}
+    CLOUDFLARE_KEY: ${CLOUDFLARE_KEY}
+    ROOT_DOMAIN: ${ROOT_DOMAIN}
+    TTL: ${TTL}
+    DOMAINS: ${DOMAINS}
+  labels:
+    io.rancher.container.create_agent: "true"
+    io.rancher.container.agent.role: "external-dns"

@@ -1,0 +1,47 @@
+.catalog:
+  name: "T-Systems DNS"
+  version: "v0.4.2-rancher1"
+  description: "Rancher External DNS service powered by T-Systems"
+  minimum_rancher_version: v0.44.0
+  questions:
+    - variable: "DNS_HOST"
+      label: "Domain Name Server IP"
+      description: "Server IP or Hostname"
+      type: "string"
+      required: true
+    - variable: "DNS_PORT"
+      label: "Domain Name Server Port"
+      description: "Server port"
+      type: "string"
+      required: true
+      default: "53"
+    - variable: "TSIG_KEYNAME"
+      label: "DNS Key Name"
+      description: "Enter your DNS secret key name"
+      type: "string"
+      required: true
+    - variable: "TSIG_KEY"
+      label: "DNS Secret Key"
+      description: "Enter your DNS secret key"
+      type: "string"
+      required: true
+    - variable: "TTL"
+      label: "TTL"
+      description: "The resource record cache time to live (TTL), in seconds"
+      type: "int"
+      default: 299
+      required: false
+    - variable: "ROOT_DOMAIN"
+      label: "Hosted zone name"
+      description: "DNS hosted zone name. DNS entries will be created for <service>.<stack>.<environment>.<hosted zone>"
+      type: "string"
+      required: true
+
+rfc2136dns:
+  health_check:
+    port: 1000
+    interval: 5000
+    unhealthy_threshold: 3
+    request_line: GET / HTTP/1.0
+    healthy_threshold: 2
+    response_timeout: 2000

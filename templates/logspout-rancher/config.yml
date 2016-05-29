@@ -1,0 +1,5 @@
+name: Logspout-Rancher
+description: |
+  Glider Labs Logspout with Logstash adapter and optimized for Rancher
+version: 0.3.3-rancher
+category: "Logging Tools"
