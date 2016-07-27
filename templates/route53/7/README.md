@@ -1,8 +1,10 @@
 ## Route53 DNS
 
-#### Rancher External DNS service powered by Amazon Route53
+Rancher External DNS service powered by Amazon Route53
 
-This IAM policy describes the minimum permissions required for this service. Replace `<HOSTED_ZONE_ID>` with the ID of the hosted zone.
+#### Required AWS IAM permissions
+The following IAM policy describes the minimum set of permissions needed for Route53 DNS to work.
+Make sure that the AWS security credentials (Access Key ID / Secret Access Key) that you are providing in the template have been granted these permissions.
 
 ```json
 {
@@ -11,8 +13,8 @@ This IAM policy describes the minimum permissions required for this service. Rep
         {
             "Effect": "Allow",
             "Action": [
-                "route53:GetChange",
                 "route53:GetHostedZone",
+                "route53:GetHostedZoneCount",
                 "route53:ListHostedZonesByName",
                 "route53:ListResourceRecordSets"
             ],
@@ -31,4 +33,6 @@ This IAM policy describes the minimum permissions required for this service. Rep
         }
     ]
 }
-```
+``` 
+
+Note: When using this JSON document to create a custom IAM policy in AWS, replace `<HOSTED_ZONE_ID>` with the ID of the Route53 hosted zone or use a wildcard ('*').
