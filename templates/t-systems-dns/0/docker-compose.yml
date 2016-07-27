@@ -1,16 +1,16 @@
 rfc2136dns:
-  image: janeczku/external-dns:rfc2
+  image: janeczku/external-dns:0.5.0-dev
   expose:
    - 1000
   command:
   - -provider
-  - RFC2136
+  - rfc2136
   - -debug
   environment:
-    DNS_HOST: ${DNS_HOST}
-    DNS_PORT: ${DNS_PORT}
-    TSIG_KEYNAME: ${TSIG_KEYNAME}
-    TSIG_KEY: ${TSIG_KEY}
+    RFC2136_HOST: ${DNS_HOST}
+    RFC2136_PORT: ${DNS_PORT}
+    RFC2136_TSIG_KEYNAME: ${TSIG_KEYNAME}
+    RFC2136_TSIG_SECRET: ${TSIG_KEY}
     ROOT_DOMAIN: ${ROOT_DOMAIN}
     TTL: ${TTL}
   labels:

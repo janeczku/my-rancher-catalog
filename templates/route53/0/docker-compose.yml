@@ -1,5 +1,5 @@
 route53:
-  image: janeczku/external-dns:rate-test
+  image: janeczku/external-dns:0.5.0-dev
   command: -debug
   expose: 
    - 1000
