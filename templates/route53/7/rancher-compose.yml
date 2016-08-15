@@ -38,15 +38,17 @@
       required: false
     - variable: "HEALTH_CHECK_INTERVAL"
       label: "Health Check Interval"
-      description: "The interval (in seconds) for the service health check. Each check triggers a call to the Route53 API."
+      description: "The health check interval in seconds. Raise this value if the global number of requests from your account exceed the Route53 API rate limits."
       type: "int"
-      default: 15000
+      min: 2
+      max: 999
+      default: 15
       required: false
 
 route53:
   health_check:
     port: 1000
-    interval: ${HEALTH_CHECK_INTERVAL}
+    interval: ${HEALTH_CHECK_INTERVAL}000
     unhealthy_threshold: 2
     request_line: GET / HTTP/1.0
     healthy_threshold: 2
