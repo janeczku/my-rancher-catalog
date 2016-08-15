@@ -36,11 +36,17 @@
       description: "If there are multiple zones with the same name, then you must additionally specify the ID of the hosted zone to use."
       type: "string"
       required: false
+    - variable: "HEALTH_CHECK_INTERVAL"
+      label: "Health Check Interval"
+      description: "The interval (in seconds) for the service health check. Each check triggers a call to the Route53 API."
+      type: "int"
+      default: 15000
+      required: false
 
 route53:
   health_check:
     port: 1000
-    interval: 15000
+    interval: ${HEALTH_CHECK_INTERVAL}
     unhealthy_threshold: 2
     request_line: GET / HTTP/1.0
     healthy_threshold: 2
