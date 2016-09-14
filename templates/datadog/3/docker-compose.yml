@@ -1,5 +1,5 @@
 datadog-init:
-  image: janeczku/datadog-rancher-init:v2.0
+  image: janeczku/datadog-rancher-init:v2.2
   net: none
   command: /bin/true
   volumes:
@@ -8,7 +8,7 @@ datadog-init:
     io.rancher.container.start_once: 'true'
     io.rancher.container.pull_image: always
 datadog-agent:
-  image: datadog/docker-dd-agent:11.0.580
+  image: datadog/docker-dd-agent:11.1.580
   entrypoint: /opt/rancher/entrypoint-wrapper.py
   command:
     - supervisord
@@ -18,10 +18,15 @@ datadog-agent:
   restart: always
   environment:
     API_KEY: ${api_key}
-    DOGSTATSD_ONLY: "${statsd_standalone}"
+    SD_BACKEND_HOST: ${sd_backend_host}
+    SD_BACKEND_PORT: ${sd_backend_port}
+    SD_TEMPLATE_DIR: ${sd_template_dir}
     STATSD_METRIC_NAMESPACE: ${statsd_namespace}
-    HOST_LABELS: ${host_labels}
-    CONTAINER_LABELS: ${container_labels}
+    DD_STATSD_STANDALONE: "${statsd_standalone}"
+    DD_HOST_LABELS: ${host_labels}
+    DD_CONTAINER_LABELS: ${service_labels}
+    DD_SERVICE_DISCOVERY: ${service_discovery}
+    DD_SD_CONFIG_BACKEND: ${sd_config_backend}
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - /proc/:/host/proc/:ro
