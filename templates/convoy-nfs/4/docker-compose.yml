@@ -10,13 +10,13 @@ convoy-nfs:
     - /var/run:/host/var/run
     - /run:/host/run
     - /etc/docker/plugins:/etc/docker/plugins
-  image: janeczku/convoytest
+  image: janeczku/convoy-agent:v0.12.0-ubuntu-1510
   command: volume-agent-nfs --debug
 
 convoy-nfs-storagepool:
   labels:
     io.rancher.container.create_agent: 'true'
-  image: janeczku/convoytest
+  image: janeczku/convoy-agent:v0.12.0-ubuntu-1510
   volumes:
     - /var/run:/host/var/run
     - /run:/host/run
