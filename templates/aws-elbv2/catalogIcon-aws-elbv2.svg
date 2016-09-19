@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="514px" height="283px" viewBox="0 0 514 283" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+<svg viewBox="-10 -20 540 340" style="enable-background:new 0 0 595 310;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xml:space="preserve" >
     <!-- Generator: Sketch 3.3.1 (12002) - http://www.bohemiancoding.com/sketch -->
     <title>RancherELBv4</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
         <g id="AWS" sketch:type="MSLayerGroup" transform="translate(0.000000, 90.000000)">
             <g id="g10" transform="translate(257.000000, 96.278670) scale(1, -1) translate(-257.000000, -96.278670) " sketch:type="MSShapeGroup">
