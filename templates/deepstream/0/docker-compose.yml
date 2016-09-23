@@ -1,0 +1,5 @@
+deepstream:
+  image: ubuntu:14.04
+  command: /bin/sleep 3423423423
+  tty: true
+  stdin_open: true

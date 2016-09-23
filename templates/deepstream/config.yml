@@ -1,0 +1,7 @@
+name: Deepstream
+description: |
+  Real-time performance tracking and visualization of your container-based application deployment
+version: v1.0.1
+category: Monitoring
+maintainer: "Jan Bruder <jan@rancher.com>"
+license: The MIT License

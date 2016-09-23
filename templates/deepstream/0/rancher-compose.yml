@@ -1,0 +1,23 @@
+.catalog:
+  name: "Deepstream"
+  version: "v1.0.1"
+  description: "Real-time performance tracking and visualization of your container-based application deployment"
+  minimum_rancher_version: v0.46.0
+  questions:
+  - variable: "config"
+    type: "multiline"
+    label: "Deepstream Config"
+    description: |
+      List of plugins in the format <plugin_name>[:<version>]
+      one entry per line.
+    default: |
+      credentials
+      # General
+      # Each server within a cluster needs a unique name. Set to UUID to have deepstream autogenerate a unique id
+      serverName: UUID
+      # Show the deepstream logo on startup (highly recommended)
+      showLogo: true
+deepstream:
+  metadata:
+    deepconfig: |
+      ${config}
