@@ -38,7 +38,7 @@
       required: false
     - variable: "HEALTH_CHECK_INTERVAL"
       label: "Health Check Interval"
-      description: "The health check interval in seconds. Raise this value if the global number of requests from your account exceed the Route53 API rate limits."
+      description: "The health check interval for this service, in seconds. Raise this value if the total requests from your AWS account exceed the Route53 API rate limits."
       type: "int"
       min: 2
       max: 999
