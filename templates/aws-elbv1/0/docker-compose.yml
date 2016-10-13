@@ -1,5 +1,5 @@
 awselbv1:
-  image: rancher/external-dns:v0.2.1
+  image: rancher/external-lb:v0.2.1
   command: -provider=elbv1 -debug
   expose: 
    - 1000
