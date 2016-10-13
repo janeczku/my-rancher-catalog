@@ -1,5 +1,5 @@
 awselbv1:
-  image: janeczku/ext-lb-classic:dev1
+  image: rancher/external-dns:v0.2.1
   command: -provider=elbv1 -debug
   expose: 
    - 1000
@@ -12,4 +12,3 @@ awselbv1:
   labels:
     io.rancher.container.create_agent: "true"
     io.rancher.container.agent.role: "external-dns"
-    io.rancher.container.pull_image: always
