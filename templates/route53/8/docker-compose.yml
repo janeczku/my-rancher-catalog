@@ -1,5 +1,6 @@
 route53:
   image: janeczku/external-dns:dev-para10
+  command: -debug
   expose: 
    - 1000
   environment:
