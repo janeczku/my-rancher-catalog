@@ -1,6 +1,6 @@
 .catalog:
   name: "Route53 DNS"
-  version: "v0.5.5-rancher1"
+  version: "v0.6.0-rancher1"
   description: "Rancher External DNS service powered by Amazon Route53. Requires Rancher version 0.44.0"
   minimum_rancher_version: v1.1.0
   questions:
@@ -37,8 +37,8 @@
       type: "string"
       required: false
     - variable: "NAME_TEMPLATE"
-      label: "Name template (Optional)"
-      description: "Template name use the placeholders"
+      label: "FQDN template (Optional)"
+      description: "Specify a custom name template for the service records"
       type: "string"
       required: false
     - variable: "HEALTH_CHECK_INTERVAL"
