@@ -28,7 +28,7 @@
       required: false
     - variable: "ROOT_DOMAIN"
       label: "Hosted Zone Name"
-      description: "Route53 hosted zone name (zone has to be pre-created).
+      description: "Route53 hosted zone name (zone has to be pre-created)."
       type: "string"
       required: true
     - variable: "ROUTE53_ZONE_ID"
@@ -39,20 +39,21 @@
     - variable: "NAME_TEMPLATE"
       label: "DNS Name Template"
       description: |
-        By default DNS records are created using the following naming convention: `<service>.<stack>.<environment>.<domain>`.
-        You may specify a custom name template used to construct the subdomain part of the FQDN (left of the <domain>).
-        Supported placeholders: `%{{service_name}}`, `%{{stack_name}}`, `%{{environment_name}}`
+        Name template used to construct the subdomain part (left of the hosted zone name) of the DNS record names.
+        Supported placeholders: %{{service_name}}, %{{stack_name}}, %{{environment_name}}.
+        By default DNS entries will be named '<service>.<stack>.<environment>.<domain>'.
       type: "string"
+      default: "%{{service_name}}.%{{stack_name}}.%{{environment_name}}"
       required: false
     - variable: "HEALTH_CHECK_INTERVAL"
       label: "Health Check Interval"
       description: |
         The health check interval for this service, in seconds. 
-        Raise this value if the global requests to Route53 for your account exceed API rate limits.
+        Raise this value if the global requests for your account are exceeding the Route53 API rate limits.
       type: "int"
       min: 2
       max: 999
-      default: 15
+      default: 10
       required: false
 
 route53:

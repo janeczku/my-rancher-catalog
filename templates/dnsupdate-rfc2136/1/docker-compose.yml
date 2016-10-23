@@ -1,11 +1,13 @@
-cloudflare:
+rfc2136dns:
   image: rancher/external-dns:v0.6.0
-  command: -provider=cloudflare
-  expose: 
+  command: -provider=rfc2136
+  expose:
    - 1000
   environment:
-    CLOUDFLARE_EMAIL: ${CLOUDFLARE_EMAIL}
-    CLOUDFLARE_KEY: ${CLOUDFLARE_KEY}
+    RFC2136_HOST: ${RFC2136_HOST}
+    RFC2136_PORT: ${RFC2136_PORT}
+    RFC2136_TSIG_KEYNAME: ${RFC2136_TSIG_KEYNAME}
+    RFC2136_TSIG_SECRET: ${RFC2136_TSIG_SECRET}
     ROOT_DOMAIN: ${ROOT_DOMAIN}
     NAME_TEMPLATE: ${NAME_TEMPLATE}
     TTL: ${TTL}

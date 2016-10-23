@@ -40,7 +40,7 @@
       label: "Health Check Interval"
       description: "The health check interval for this service, in seconds. Raise this value if the total requests from your AWS account exceed the Route53 API rate limits."
       type: "int"
-      min: 2
+      min: 1
       max: 999
       default: 15
       required: false

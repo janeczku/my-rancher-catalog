@@ -1,6 +1,6 @@
-## Route53 DNS
+## CloudFlare DNS
 
-Rancher External DNS service powered by Amazon Route53
+Rancher External DNS service powered by CloudFlare DNS
 
 #### Changelog
 
@@ -33,7 +33,7 @@ You can specify a custom name template used to construct the subdomain part (lef
 
 `%{{stack_name}}-%{{service_name}}.statictext`
 
-Make sure to only use characters in static text and separators that your provider allows in DNS names.
+Make sure to only use characters in static text and separators that are allowed by your provider in DNS names.
 
 ##### Required AWS IAM permissions
 The following IAM policy describes the minimum set of permissions needed for Route53 DNS to work.

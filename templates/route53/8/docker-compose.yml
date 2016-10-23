@@ -1,6 +1,6 @@
 route53:
-  image: janeczku/external-dns:dev-para11
-  command: -debug
+  image: rancher/external-dns:v0.6.0
+  command: -provider=route53
   expose: 
    - 1000
   environment:
