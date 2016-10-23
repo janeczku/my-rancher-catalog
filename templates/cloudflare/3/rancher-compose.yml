@@ -1,0 +1,47 @@
+.catalog:
+  name: "CloudFlare DNS"
+  version: "v0.6.0-rancher1"
+  description: "Rancher External DNS service powered by CloudFlare. Requires Rancher version v1.1.0"
+  minimum_rancher_version: v1.1.0
+  questions:
+    - variable: "CLOUDFLARE_EMAIL"
+      label: "CloudFlare email address"
+      description: "Email address associated with your CloudFlare account"
+      type: "string"
+      required: true
+    - variable: "CLOUDFLARE_KEY"
+      label: "CloudFlare API key"
+      description: "API key for your CloudFlare account"
+      type: "string"
+      required: true
+    - variable: "ROOT_DOMAIN"
+      label: "Zone Name"
+      description: "The DNS zone (domain) managed by CloudFlare.
+      type: "string"
+      required: true
+    - variable: "TTL"
+      label: "TTL"
+      description: "The resource record cache time to live (TTL), in seconds (minimum 120)"
+      type: "int"
+      default: 120
+      min: 120
+      max: 3600
+      required: false
+    - variable: "NAME_TEMPLATE"
+      label: "DNS Name Template"
+      description: |
+        By default DNS records are created using the following naming convention: `<service>.<stack>.<environment>.<domain>`.
+        You may specify a custom name template used to construct the subdomain part of the FQDN (left of <domain>).
+        Supported placeholders: `%{{service_name}}`, `%{{stack_name}}`, `%{{environment_name}}`
+        Example: `%{{service_name}}.static-text`
+      type: "string"
+      required: false
+
+cloudflare:
+  health_check:
+    port: 1000
+    interval: 5000
+    unhealthy_threshold: 3
+    request_line: GET / HTTP/1.0
+    healthy_threshold: 2
+    response_timeout: 2000

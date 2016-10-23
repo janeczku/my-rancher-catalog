@@ -1,12 +1,13 @@
 cloudflare:
-  image: rancher/external-dns:v0.1.9
-  command: -provider=cloudflare
+  image: janeczku/external-dns:dev-para11
+  command: -provider=cloudflare -debug
   expose: 
    - 1000
   environment:
     CLOUDFLARE_EMAIL: ${CLOUDFLARE_EMAIL}
     CLOUDFLARE_KEY: ${CLOUDFLARE_KEY}
     ROOT_DOMAIN: ${ROOT_DOMAIN}
+    NAME_TEMPLATE: ${NAME_TEMPLATE}
     TTL: ${TTL}
   labels:
     io.rancher.container.create_agent: "true"

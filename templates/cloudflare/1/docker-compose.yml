@@ -1,11 +1,11 @@
-dnsimple:
+cloudflare:
   image: rancher/external-dns:v0.2.1
-  command: --provider dnsimple
+  command: -provider=cloudflare
   expose: 
    - 1000
   environment:
-    DNSIMPLE_TOKEN: ${DNSIMPLE_TOKEN}
-    DNSIMPLE_EMAIL: ${DNSIMPLE_EMAIL}
+    CLOUDFLARE_EMAIL: ${CLOUDFLARE_EMAIL}
+    CLOUDFLARE_KEY: ${CLOUDFLARE_KEY}
     ROOT_DOMAIN: ${ROOT_DOMAIN}
     TTL: ${TTL}
   labels:
