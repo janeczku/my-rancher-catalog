@@ -5,24 +5,24 @@
   minimum_rancher_version: v1.1.0
   questions:
     - variable: "RFC2136_HOST"
-      label: "Domain Name Server IP"
+      label: "DNS Server IP"
       description: "Server IP or Hostname"
       type: "string"
       required: true
     - variable: "RFC2136_PORT"
-      label: "Domain Name Server Port"
+      label: "DNS Server Port"
       description: "Server port"
       type: "string"
       required: true
       default: "53"
     - variable: "RFC2136_TSIG_KEYNAME"
       label: "TSIG Key Name"
-      description: "Name of the key used for TSIG"
+      description: "Name of the TSIG key"
       type: "string"
       required: true
     - variable: "RFC2136_TSIG_SECRET"
       label: "TSIG Key"
-      description: "Value of the key used for TSIG, base64 encoded"
+      description: "TSIG secret key (base64 encoded)"
       type: "string"
       required: true
     - variable: "TTL"
@@ -32,14 +32,14 @@
       default: 60
       required: false
     - variable: "ROOT_DOMAIN"
-      label: "Hosted zone name"
-      description: "DNS hosted zone name (zone has to be pre-created)."
+      label: "Zone name"
+      description: "The name of an existing zone in which to create the records."
       type: "string"
       required: true
     - variable: "NAME_TEMPLATE"
       label: "DNS Name Template"
       description: |
-        Name template used to construct the subdomain part (left of the hosted zone name) of the DNS record names.
+        Name template used to construct the subdomain part (left of the domain name) of the DNS record names.
         Supported placeholders: %{{service_name}}, %{{stack_name}}, %{{environment_name}}.
         By default DNS entries will be named '<service>.<stack>.<environment>.<domain>'.
       type: "string"
