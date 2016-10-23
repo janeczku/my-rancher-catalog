@@ -22,7 +22,7 @@
       required: true
     - variable: "RFC2136_TSIG_SECRET"
       label: "TSIG Key"
-      description: "TSIG secret key (base64 encoded)"
+      description: "TSIG secret key (HMAC-MD5, base64 encoded)"
       type: "string"
       required: true
     - variable: "TTL"

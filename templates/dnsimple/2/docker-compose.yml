@@ -1,8 +1,6 @@
 dnsimple:
   image: rancher/external-dns:v0.6.0
-  command:
-  - -provider
-  - dnsimple
+  command: -provider=dnsimple
   expose: 
    - 1000
   environment:

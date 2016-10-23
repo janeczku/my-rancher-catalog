@@ -22,7 +22,7 @@ When running multiple instances of the External DNS service configured to use th
 
 ##### Custom DNS name template
 
-By default DNS entries are named '<service>.<stack>.<environment>.<domain>'.
+By default DNS entries are named `<service>.<stack>.<environment>.<domain>`.    
 You can specify a custom name template used to construct the subdomain part (left of the domain/zone name) of the DNS records. The following placeholders are supported:
 
 * `%{{service_name}}`
@@ -34,38 +34,3 @@ You can specify a custom name template used to construct the subdomain part (lef
 `%{{stack_name}}-%{{service_name}}.statictext`
 
 Make sure to only use characters in static text and separators that are allowed by your provider in DNS names.
-
-##### Required AWS IAM permissions
-The following IAM policy describes the minimum set of permissions needed for Route53 DNS to work.
-Make sure that the AWS security credentials (Access Key ID / Secret Access Key) that you are specifying have been granted at least these permissions.
-
-```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "route53:GetHostedZone",
-                "route53:GetHostedZoneCount",
-                "route53:ListHostedZonesByName",
-                "route53:ListResourceRecordSets"
-            ],
-            "Resource": [
-                "*"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "route53:ChangeResourceRecordSets"
-            ],
-            "Resource": [
-                "arn:aws:route53:::hostedzone/<HOSTED_ZONE_ID>"
-            ]
-        }
-    ]
-}
-``` 
-
-Note: When using this JSON document to create a custom IAM policy in AWS, replace `<HOSTED_ZONE_ID>` with the ID of the Route53 hosted zone or use a wildcard ('*').

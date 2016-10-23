@@ -18,11 +18,11 @@ While upgrading from a version lower than v0.6.0 the TTL configuration value sho
 
 ##### Limitation when running the service on multiple Rancher servers
 
-When running multiple instances of the External DNS service configured to use the same domain name, then only one of them can run in the "Default" environment of a Rancher server instance.
+When running multiple instances of the External DNS service configured to use the **same** domain name, then only one of them can run in the "Default" environment of a Rancher server instance.
 
 ##### Custom DNS name template
 
-By default DNS entries are named '<service>.<stack>.<environment>.<domain>'.
+By default DNS entries are named `<service>.<stack>.<environment>.<domain>`.    
 You can specify a custom name template used to construct the subdomain part (left of the domain/zone name) of the DNS records. The following placeholders are supported:
 
 * `%{{service_name}}`

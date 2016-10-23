@@ -22,7 +22,7 @@ When running multiple instances of the External DNS service configured to use th
 
 ##### Custom DNS name template
 
-By default DNS entries are named '<service>.<stack>.<environment>.<domain>'.
+By default DNS entries are named `<service>.<stack>.<environment>.<domain>`.    
 You can specify a custom name template used to construct the subdomain part (left of the domain/zone name) of the DNS records. The following placeholders are supported:
 
 * `%{{service_name}}`
