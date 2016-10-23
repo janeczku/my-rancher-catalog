@@ -16,7 +16,7 @@
       required: true
     - variable: "ROOT_DOMAIN"
       label: "Zone Name"
-      description: "The DNS zone (domain) managed by CloudFlare.
+      description: "The DNS zone (domain) managed by CloudFlare."
       type: "string"
       required: true
     - variable: "TTL"
@@ -29,6 +29,11 @@
       required: false
     - variable: "NAME_TEMPLATE"
       label: "DNS Name Template"
+      description: |
+        By default DNS records are created using the following naming convention: '<service>.<stack>.<environment>.<domain>'.
+        You may specify a custom name template used to construct the subdomain part of the FQDN (left of <domain>).
+        Supported placeholders: %{{service_name}}, %{{stack_name}}, %{{environment_name}}
+        Example: %{{service_name}}.static-text
       type: "string"
       required: false
 
